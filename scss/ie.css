@@ -1,0 +1,54 @@
+/*
+============================================================================
+Internet Explorer LT 9 Custom Styles
+============================================================================
+*/
+
+/* =========  General Structural Optimization ========== **/
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+.title-area,
+.divider-area,
+.content-area,
+#main-view,
+#foot { display: block !important; }
+
+.container-fluid { width: 1300px !important; }
+
+.wow { visibility: visible !important; }
+
+#main-view .bg {
+	background-position: center center !important;
+	background-repeat: no-repeat !important;
+}
+.welcome { bottom: 40px; }
+
+.title-area {
+    z-index: 1;
+    width: 100% !important;
+    height: 600px !important;
+    padding: 160px 0 !important;
+    position: relative;
+    background-size: auto !important;
+    background-repeat: no-repeat !important;
+}
+
+.split-title { display: none !important; }
+
+/* =========  Header ========== **/
+
+#head.sticky {
+	background: #ffffff !important;
+	-moz-opacity: 0.80;
+		opacity:.80;
+			filter: alpha(opacity=80);
+}
+
+/* =========  Home Page ========== **/
+
+.gal-grid a:before { display: none; }
+
+.staff { width: 100%; }
+
+.staff .photo { width: 49% !important; }
+
+/*==========================================================================*/

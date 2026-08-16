@@ -1,0 +1,57 @@
+/** ============= Border Radius ===================== **/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+	      -o-border-radius: $radius;
+	          border-radius: $radius;
+}
+
+/** =============== Transition ====================== **/
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+		-moz-transition: $transition;
+			-ms-transition: $transition;
+				-o-transition: $transition;
+					transition: $transition;
+}
+
+/** =============== Animation Delay ================== **/
+@mixin animation-delay($animation_delay) {
+	-webkit-animation-delay: $animation_delay;
+		-moz-animation-delay: $animation_delay;
+			-ms-animation-delay: $animation_delay;
+				-o-animation-delay: $animation_delay;
+					animation-delay: $animation_delay;
+}
+			
+/** ==================== Transform =================== **/
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;	
+	   -moz-transform: $transforms;
+			-ms-transform: $transforms;
+				-o-transform: $transforms;
+					transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+} 
+
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+/** ====================  =================== **/
