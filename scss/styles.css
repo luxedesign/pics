@@ -5,6 +5,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+.embed-responsive-4by3 {
+    padding-bottom: 100% !important;
+    margin-bottom: 2em !important;
+    min-height: 650px !important;
+}
+
 p,
 .navbar-default .navbar-nav>li>a,
 li{
@@ -482,7 +489,7 @@ button.btn {
 /* 1.5 - Backgrounds															*/
 /* ============================================================================ */
 .bg.naiomiOne {
-  background: url(../images/pose.jpg); }
+  background: url(../images/01.jpg); }
 
 .bg-specialities-title {
   background: url(images/headshot2.jpg); }
@@ -875,7 +882,8 @@ button.navbar-toggle collapsed {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 1200px !important;}
   #main-view .bg {
     width: 100%;
     height: 100%;
@@ -883,6 +891,7 @@ button.navbar-toggle collapsed {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     position: relative;
+
     z-index: 1;
     -webkit-animation: mainviewmove 60s infinite ease-in-out;
     -moz-animation: mainviewmove 60s infinite ease-in-out;
@@ -3212,7 +3221,7 @@ table.table-bordered {
   scroll-margin-top: 300px; /* Adjust this value to your liking */
 }
 
-   
+
   /* === General === */
   body:before {
     content: '';
