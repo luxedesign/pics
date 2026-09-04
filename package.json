@@ -1,0 +1,12 @@
+{
+  "name": "pics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "functions-framework --target=getVideoUrl --port=$PORT"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.2",
+    "@google-cloud/storage": "^7.11.0"
+  }
+}

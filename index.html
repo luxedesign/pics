@@ -120,8 +120,46 @@
 
 
 
+<section id="dirty" class="content-area">
+	<div class="container-fluid">
+		<div id="stills" class="row">
+			<div class="col-xs-12">
+				<h1 class="left">Dirty Videos</h1>
+			</div>
 
-								<section id="dirty" class="content-area">
+			<!-- Password Input Block -->
+			<div id="password-block" class="col-xs-3">
+				<div>
+					<label for="pass-input"><p>Enter Passcode to Unlock:</p></label>
+					<div class="input-group">
+						<input type="password" id="pass-input" class="form-control" placeholder="Passcode" style="color:black !important">
+						<span class="input-group-btn">
+							<button style="margin-top:1em !important" class="btn btn-default" type="button" onclick="unlockVideos()">Submit</button>
+						</span>
+					</div>
+					<p id="pass-error" style="color: red; margin-top: 5px; display: none;">Incorrect password. Try again.</p>
+				</div>
+			</div>
+
+			<!-- Video Player 1 (Initially Hidden) -->
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 video-wrapper" style="display: none;">
+				<div class="section d-flex justify-content-center embed-responsive embed-responsive-4by3">
+					<video id="vid-58" class="w-100 h-auto" controls>
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</div>
+
+			<!-- Additional video slots can be added here following the same pattern -->
+
+		</div>
+	</div>
+</section>
+
+
+
+
+								<!-- <section id="dirty" class="content-area">
 									<div class="container-fluid">
 										<div id="stills" class="row">
 											<div class="col-xs-12">
@@ -169,7 +207,7 @@
 
 
 
-									</section>
+									</section> -->
 
 
 
@@ -331,7 +369,47 @@
 
 		<script src="js/general.js"></script>
 
+		<script>
+	async function unlockVideos() {
+	    const password = document.getElementById('pass-input').value;
+	    const errorMsg = document.getElementById('pass-error');
+	    errorMsg.style.display = 'none';
 
+	    try {
+	        // Switch to localhost for local testing
+					// https://newdirty-785633009933.europe-west1.run.app
+	        // const functionUrl = 'http://localhost:8080';
+					const functionUrl = 'https://newdirty-785633009933.europe-west1.run.app'
+
+	        const response = await fetch(functionUrl, {
+	            method: 'POST',
+	            headers: { 'Content-Type': 'application/json' },
+	            body: JSON.stringify({
+	                password: password,
+	                fileName: '58.mp4'
+	            })
+	        });
+
+	        if (!response.ok) {
+	            throw new Error('Unauthorized');
+	        }
+
+	        const data = await response.json();
+
+	        // Assign signed GCS URL to the video source
+	        const videoElement = document.getElementById('vid-58');
+	        videoElement.src = data.url;
+	        videoElement.load(); // Ensures video updates source state
+
+	        // Hide password prompt and display video container
+	        document.getElementById('password-block').style.display = 'none';
+	        document.querySelectorAll('.video-wrapper').forEach(el => el.style.display = 'block');
+
+	    } catch (err) {
+	        errorMsg.style.display = 'block';
+	    }
+	}
+	</script>
 
 	</body>
 	</html>
