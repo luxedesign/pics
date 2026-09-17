@@ -12,6 +12,11 @@
     min-height: 650px !important;
 }
 
+.embed-responsive-16by9{
+  padding-bottom: 80% !important;
+
+}
+
 
 #dirty button.btn{
 
